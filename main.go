@@ -17,7 +17,7 @@ func printError(msg string) {
 const dbFormat = "2006-01-02 15:04:05.000 -0700"
 
 func main() {
-	var inputFormatStr = flag.String("f", "3339", "The format of timestamp to use")
+	var inputFormatStr = flag.String("f", "rfc3339", "The format of timestamp to use")
 	var outputFormatStr = flag.String("o", "3339", "The format of timestamp to use")
 	flag.Parse()
 	args := flag.Args()
@@ -46,8 +46,6 @@ func main() {
 
 func expandFormatName(abr string) string {
 	switch abr {
-	case "3339":
-		return time.RFC3339
 	case "db":
 		return dbFormat
 	default:
